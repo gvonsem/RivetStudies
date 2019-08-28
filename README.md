@@ -1,6 +1,7 @@
 # RivetStudies
 
-Code to run Rivet on GEN or MiniAOD samples
+Code to run Rivet on GEN or MiniAOD samples. 
+The following instructions were tested on lxplus.
 
 ## Installation
 
@@ -17,6 +18,7 @@ scram b -j 8
 git clone https://github.com/gvonsem/RivetStudies.git
 ```
 
+## Running Rivet on MiniAOD via crab
 ```
-cd RivetStudies
+cd RivetStudies/RivetAnalysis
 ```
