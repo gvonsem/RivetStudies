@@ -1,6 +1,6 @@
 # RivetStudies
 
-Code to run Rivet on GEN or MiniAOD samples. 
+Code to run [Rivet](https://twiki.cern.ch/twiki/bin/viewauth/CMS/Rivet) on GEN or MiniAOD samples. 
 The following instructions were tested on lxplus.
 
 ## Installation
