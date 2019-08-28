@@ -1,0 +1,31 @@
+#!/bin/zsh
+
+#NJOBS=100
+NJOBS=200
+CRABTEMPLATE=crabConfig_Rivet_template.py
+DATE=`date +'%F'`
+
+ANALYZERCONFIG=runRivetAnalyzer_crab_cfg.py
+DATASETIN=/TT_TuneCH3_13TeV-powheg-herwig7/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v2/MINIAODSIM
+
+echo "DATASETIN: $DATASETIN"
+a=("${(@s|/|)DATASETIN}")
+
+INSHORT=$a[2]
+#echo $INSHORT
+ 
+CRABCONFIG=crabConfig_Rivet_${INSHORT}.py
+echo "CRABCONFIG $CRABCONFIG"
+
+DATASETOUT=${INSHORT}_Rivet
+
+echo "DATASETOUT: $DATASETOUT"
+cp $CRABTEMPLATE $CRABCONFIG
+sed -i -e "s|ANALYZERCONFIG|$ANALYZERCONFIG|g" $CRABCONFIG
+sed -i -e "s|DATASETIN|$DATASETIN|g" $CRABCONFIG
+sed -i -e "s|INSHORT|$INSHORT|g" $CRABCONFIG
+sed -i -e "s/DATASETOUT/$DATASETOUT/g" $CRABCONFIG
+sed -i -e "s/DATE/$DATE/g" $CRABCONFIG
+sed -i -e "s/NJOBS/$NJOBS/g" $CRABCONFIG
+crab submit -c $CRABCONFIG
+
