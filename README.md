@@ -24,7 +24,8 @@ cd RivetStudies/RivetAnalysis/crab
 
 source /cvmfs/cms.cern.ch/crab3/crab.sh
 voms-proxy-init -voms cms
-
-# Adapt submitCrab_Rivet.sh for the desired use case and submit jobs
+```
+Adapt submitCrab_Rivet.sh for the desired use case and submit jobs
+```
 ./submitCrab_Rivet.sh
 ```
