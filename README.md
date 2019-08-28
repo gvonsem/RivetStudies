@@ -29,3 +29,20 @@ Adapt submitCrab_Rivet.sh for the desired use case and submit jobs
 ```
 ./submitCrab_Rivet.sh
 ```
+
+## Merge Rivet output and make plots
+
+```
+cd CMSSW_10_6_0/src
+source Rivet/rivetSetup.sh
+cd RivetStudies/RivetAnalysis
+mkdir plots; cd plots
+```
+Merge the yoda files if needed. Note: there are limitations to the [yodamerge](https://github.com/alisw/yoda/blob/master/bin/yodamerge) functionality; please check if they are applicable.
+```
+yodamerge <path_to_yoda_files>/*.yoda -o output_merged.yoda
+```
+Make actual plots:
+```
+rivet-mkhtml output_merged.yoda:"Legend title":'LineColor=red' --mc-errs
+```
